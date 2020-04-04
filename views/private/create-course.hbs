@@ -1,0 +1,30 @@
+<form action="/create-course" method="POST">
+    <input type="text" name="title" id="">
+    <input type="text" name="leadTeacher" id="">
+    <input type="date" name="startDate" id="">
+    <input type="date" name="endDate" id="">
+    <select name="ta" multiple>
+        {{#each ta}}
+            <option value="{{this.name}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    <input type="text" name="courseImg" id="">
+    <input type="text" name="description" id="">]
+    <select name="status" id="">
+        <option value="ON">ON</option>
+        <option value="OFF">OFF</option>
+    </select>
+    <select name="students" multiple>
+        {{#each users}}
+            <option value="{{this.name}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    <button type="submit">Criar</button>
+</form>
+
+
+
+
+
+
+

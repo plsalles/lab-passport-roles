@@ -1,0 +1,25 @@
+<h2>Ironhack Users</h2>
+
+{{#each users}}
+
+<div id="{{username}}">
+    <h3>{{this.name}}</h3>
+    <h4>{{this.username}}</h4>
+    <h4>{{this.profileImg}}</h4>
+    <h4>{{this.description}}</h4>
+    <h4>{{this.facebookId}}</h4>
+    <h4>{{this.role}}</h4>
+    {{#if editable}}
+        <form action="/edit/{{id}}" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+    {{/if}}
+    <p>-------------------------</p>
+</div>
+{{/each}}
+
+</div>
+    {{#if message}}
+        <div class="error-message">{{ message }}</div>
+    {{/if}}
+<div>

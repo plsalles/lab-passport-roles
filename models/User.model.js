@@ -7,9 +7,10 @@ const userSchema = new Schema(
     name: String,
     password: String,
     profileImg: String,
+    email: String,
     description: String,
-    facebookId: String
-    // add a role here
+    facebookId: String,
+    role: { type: String, required: true, enum: ['BOSS', 'DEV','TA','STUDENT','GUEST'], default: 'GUEST' }
   },
   {
     timestamps: true

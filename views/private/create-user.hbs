@@ -1,0 +1,33 @@
+<div>
+  <form action="/admin/create" method="POST">
+    <label for="">Name:</label>
+    <input type="text" name="name" placeholder="Please type your name">
+    <label for="">User:</label>
+    <input type="text" name="username" placeholder="Type the username">
+    <label for="">Password:</label>
+    <input type="password" name="password" placeholder="Type your password">
+    <label for="">Email:</label>
+    <input type="text" name="email" placeholder="Tye your email address">
+    <label for="">Profile Image:</label>
+    <input type="text" name="profileImg" placeholder="Profile Image">
+    <label for="">Description:</label>
+    <input type="text" name="description" placeholder="Description">
+    <label for="">Facebook ID:</label>
+    <input type="text" name="facebookId" placeholder="Facebook ID">
+    <label for="">Role:</label>
+    <select name="role" id="">
+        <option value="BOSS">BOSS</option>
+        <option value="DEV">DEV</option>
+        <option value="TA">TA</option>
+        <option value="STUDENT">STUDENT</option>
+        <option value="GUEST">GUEST</option>
+    </select>
+
+    <button type="submit">Create user</button>
+  </form>
+  <div>
+    {{#if errorMessage}}
+      <span>{{errorMessage}}</span>
+    {{/if}}
+  </div>
+</div>
