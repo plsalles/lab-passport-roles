@@ -1,22 +1,35 @@
 <form action="/create-course" method="POST">
+    <label for="">Title:</label>
     <input type="text" name="title" id="">
-    <input type="text" name="leadTeacher" id="">
-    <input type="date" name="startDate" id="">
-    <input type="date" name="endDate" id="">
-    <select name="ta" multiple>
-        {{#each ta}}
-            <option value="{{this.name}}">{{this.name}}</option>
+    <label for="">Lead Teacher:</label>
+    <select name="leadTeacher" multiple>
+        {{#each teachers}}
+            <option value="{{this.id}}">{{this.name}}</option>
         {{/each}}
     </select>
+    <label for="">Start Date:</label>
+    <input type="date" name="startDate" id="">
+    <label for="">End Date:</label>
+    <input type="date" name="endDate" id="">
+    <label for="">Select TA's:</label>
+    <select name="ta" multiple>
+        {{#each ta}}
+            <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    <label for="">Course Image:</label>
     <input type="text" name="courseImg" id="">
+    <label for="">Description:</label>
     <input type="text" name="description" id="">]
+    <label for="">Status:</label>
     <select name="status" id="">
         <option value="ON">ON</option>
         <option value="OFF">OFF</option>
     </select>
+    <label for="">Select Students:</label>
     <select name="students" multiple>
         {{#each users}}
-            <option value="{{this.name}}">{{this.name}}</option>
+            <option value="{{this.id}}">{{this.name}}</option>
         {{/each}}
     </select>
     <button type="submit">Criar</button>

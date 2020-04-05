@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User.model');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
+const Course = require('../models/Course.model');
 
 //Bcrypt parameters
 
@@ -97,11 +98,25 @@ router.get('/logout', (req, res) => {
 router.get('/create-course', async (req, res) => {
     const ta = await User.find({role: 'TA'});
     const users = await User.find({role: 'STUDENT'});
+    const teachers = await User.find({role: 'DEV'});
     console.log(ta);
     console.log(users);
-    res.render('private/create-course', {users,ta});
+    console.log(teachers);
+    res.render('private/create-course', {users,ta,teachers});
   });
 
+  router.post('/create-course', async (req, res) => {
+    try {
+        const newCourse = new Course(req.body);
+        console.log('Creating new course',newCourse);
+        await Course.create(newCourse);
+        res.redirect('/intranet');
+    } catch (error) {
+        console.log(error);
+        res.redirect('/create-course');
+
+    }
+  });
 
 
 // Admin Routes
